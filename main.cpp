@@ -11,13 +11,15 @@ using namespace std;
 
 void printArray(int *A, int size);
 
-vector<int> randomNumbers(int numberCounter)
+
+
+int* randomNumbers(int numberCounter)
 {
     srand(time(0));
-    vector<int> numbers;
+    int *numbers= new int[numberCounter];
     for (int i = 0; i < numberCounter; i++)
     {
-        numbers.push_back(rand() + rand() + rand() + rand() + rand());
+        numbers[i]=rand();
     }
 
     return numbers;
@@ -32,17 +34,17 @@ void printArray(int *A, int size)
 
 int main()
 {
-    int number = 10000;
-    vector<int> arr = randomNumbers(number);
-    int *arrCopy = new int[number];
-    int *arrCopy2 = new int[number];
-    for (size_t i = 0; i < number + 1; i++)
+    int arr_size = 100000;
+    
+    int *arr = randomNumbers(arr_size);
+    int *arrCopy = new int[arr_size];
+    int *arrCopy2 = new int[arr_size];
+    for (size_t i = 0; i < arr_size; i++)
     {
         arrCopy[i] = arr[i];
         arrCopy2[i] = arr[i];
     }
 
-    int arr_size = arr.size();
 
     /*
     cout << "Given array is \n";
